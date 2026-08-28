@@ -36,7 +36,7 @@ Das Skript wurde ursprünglich für die freeCodeCamp-Umgebung entwickelt. Wenn d
 **3. Datenbank aufsetzen**
 Lade den Datenbank-Dump in dein lokales PostgreSQL-System. Dadurch wird die Datenbank `bikes` erstellt und mit Beispieldaten gefüllt:
 ```bash
-psql -U postgres < bikes.sql
+psql -U DEIN_LOKALER_DB_NUTZER < bikes.sql
 ```
 
 **4. Skript ausführbar machen und starten**
