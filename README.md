@@ -25,7 +25,7 @@ Um das Projekt auf deinem eigenen Rechner auszuführen, benötigst du ein Termin
 
 **1. Repository klonen**
 ```bash
-git clone [https://github.com/VanessaPoehl/fcc-bike-rental-shop](https://github.com/VanessaPoehl/fcc-bike-rental-shop)
+git clone https://github.com/VanessaPoehl/fcc-bike-rental-shop
 cd fcc-bike-rental-shop
 ```
 
