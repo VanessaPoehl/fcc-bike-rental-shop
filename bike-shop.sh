@@ -1,4 +1,5 @@
 #!/bin/bash
+#PSQL="/c/Progra~1/PostgreSQL/18/bin/psql.exe -X --username=postgres --dbname=bikes --tuples-only -c"
 PSQL="psql -X --username=postgres --dbname=bikes --tuples-only -c"
 echo -e "\n~~~~~ Bike Rental Shop ~~~~~\n"
 
@@ -30,8 +31,13 @@ RENT_MENU() {
   else
     # display available bikes
     echo -e "\nHere are the bikes we have available:"
-    echo "$AVAILABLE_BIKES" | while read BIKE_ID BAR TYPE BAR SIZE
+    echo "$AVAILABLE_BIKES" | while IFS="|" read BIKE_ID TYPE SIZE
     do
+      # Leerzeichen am Anfang/Ende entfernen
+      BIKE_ID=$(echo $BIKE_ID | xargs)
+      TYPE=$(echo $TYPE | xargs)
+      SIZE=$(echo $SIZE | xargs)
+      
       echo "$BIKE_ID) $SIZE\" $TYPE Bike"
     done
     
