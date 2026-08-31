@@ -29,20 +29,34 @@ git clone https://github.com/VanessaPoehl/fcc-bike-rental-shop
 cd fcc-bike-rental-shop
 ```
 
-**2. Datenbank-Nutzer anpassen**
-Das Skript wurde ursprünglich für die freeCodeCamp-Umgebung entwickelt. Wenn dein lokaler PostgreSQL-Benutzer anders heißt:
-* Öffne die Datei `bike-shop.sh` und ändere in der Variablen `PSQL` (Zeile 2) den Teil `--username=freecodecamp` zu deinem lokalen Nutzernamen (z. B. `--username=DEIN_LOKALER_DB_NUTZER`).
-
-**3. Datenbank aufsetzen**
+**2. Datenbank aufsetzen**
 Lade den Datenbank-Dump in dein lokales PostgreSQL-System. Dadurch wird die Datenbank `bikes` erstellt und mit Beispieldaten gefüllt:
+
+Linux / macOS / Git Bash:
 ```bash
-psql -U DEIN_LOKALER_DB_NUTZER < bikes.sql
+psql -U postgres -f bikes.sql
 ```
 
-**4. Skript ausführbar machen und starten**
+Windows (PowerShell):
+Falls der Befehl psql direkt nicht gefunden wird, nutze den absoluten Pfad zur PostgreSQL-Installation (passe die Versionsnummer ggf. an):
+
+PowerShell
+```bash
+& "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -f bikes.sql
+```
+
+**3. Skript ausführbar machen und starten**
 Gib der Datei die nötigen Ausführungsrechte und starte das Programm:
+Unter Linux / macOS / Git Bash:
 ```bash
 chmod +x bike-shop.sh
 ./bike-shop.sh
+```
+
+Unter Windows (PowerShell):
+
+PowerShell
+```bash
+bash bike-shop.sh
 ```
 Nun öffnet sich das interaktive Menü in deinem Terminal!
