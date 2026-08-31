@@ -18,13 +18,13 @@ SET row_security = off;
 
 DROP DATABASE bikes;
 --
--- Name: bikes; Type: DATABASE; Schema: -; Owner: freecodecamp
+-- Name: bikes; Type: DATABASE; Schema: -; Owner: postgres
 --
 
-CREATE DATABASE bikes WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'C.UTF-8' LC_CTYPE = 'C.UTF-8';
+CREATE DATABASE bikes WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'C' LC_CTYPE = 'C';
 
 
-ALTER DATABASE bikes OWNER TO freecodecamp;
+ALTER DATABASE bikes OWNER TO postgres;
 
 \connect bikes
 
@@ -44,7 +44,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: bikes; Type: TABLE; Schema: public; Owner: freecodecamp
+-- Name: bikes; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.bikes (
@@ -55,10 +55,10 @@ CREATE TABLE public.bikes (
 );
 
 
-ALTER TABLE public.bikes OWNER TO freecodecamp;
+ALTER TABLE public.bikes OWNER TO postgres;
 
 --
--- Name: bikes_bike_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+-- Name: bikes_bike_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.bikes_bike_id_seq
@@ -70,17 +70,17 @@ CREATE SEQUENCE public.bikes_bike_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.bikes_bike_id_seq OWNER TO freecodecamp;
+ALTER TABLE public.bikes_bike_id_seq OWNER TO postgres;
 
 --
--- Name: bikes_bike_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+-- Name: bikes_bike_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.bikes_bike_id_seq OWNED BY public.bikes.bike_id;
 
 
 --
--- Name: customers; Type: TABLE; Schema: public; Owner: freecodecamp
+-- Name: customers; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.customers (
@@ -90,10 +90,10 @@ CREATE TABLE public.customers (
 );
 
 
-ALTER TABLE public.customers OWNER TO freecodecamp;
+ALTER TABLE public.customers OWNER TO postgres;
 
 --
--- Name: customers_customer_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+-- Name: customers_customer_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.customers_customer_id_seq
@@ -105,17 +105,17 @@ CREATE SEQUENCE public.customers_customer_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.customers_customer_id_seq OWNER TO freecodecamp;
+ALTER TABLE public.customers_customer_id_seq OWNER TO postgres;
 
 --
--- Name: customers_customer_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+-- Name: customers_customer_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.customers_customer_id_seq OWNED BY public.customers.customer_id;
 
 
 --
--- Name: rentals; Type: TABLE; Schema: public; Owner: freecodecamp
+-- Name: rentals; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.rentals (
@@ -127,10 +127,10 @@ CREATE TABLE public.rentals (
 );
 
 
-ALTER TABLE public.rentals OWNER TO freecodecamp;
+ALTER TABLE public.rentals OWNER TO postgres;
 
 --
--- Name: rentals_rental_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+-- Name: rentals_rental_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.rentals_rental_id_seq
@@ -142,38 +142,38 @@ CREATE SEQUENCE public.rentals_rental_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.rentals_rental_id_seq OWNER TO freecodecamp;
+ALTER TABLE public.rentals_rental_id_seq OWNER TO postgres;
 
 --
--- Name: rentals_rental_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+-- Name: rentals_rental_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.rentals_rental_id_seq OWNED BY public.rentals.rental_id;
 
 
 --
--- Name: bikes bike_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+-- Name: bikes bike_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.bikes ALTER COLUMN bike_id SET DEFAULT nextval('public.bikes_bike_id_seq'::regclass);
 
 
 --
--- Name: customers customer_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+-- Name: customers customer_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.customers ALTER COLUMN customer_id SET DEFAULT nextval('public.customers_customer_id_seq'::regclass);
 
 
 --
--- Name: rentals rental_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+-- Name: rentals rental_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.rentals ALTER COLUMN rental_id SET DEFAULT nextval('public.rentals_rental_id_seq'::regclass);
 
 
 --
--- Data for Name: bikes; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+-- Data for Name: bikes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO public.bikes VALUES (2, 'Mountain', 28, true);
@@ -188,7 +188,7 @@ INSERT INTO public.bikes VALUES (6, 'Road', 29, true);
 
 
 --
--- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+-- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO public.customers VALUES (1, '555-5555', 'Me');
@@ -196,7 +196,7 @@ INSERT INTO public.customers VALUES (2, '000-0000', 'Test');
 
 
 --
--- Data for Name: rentals; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+-- Data for Name: rentals; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO public.rentals VALUES (1, 1, 1, '2026-08-23', '2026-08-23');
@@ -210,28 +210,28 @@ INSERT INTO public.rentals VALUES (5, 1, 6, '2026-08-23', '2026-08-23');
 
 
 --
--- Name: bikes_bike_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+-- Name: bikes_bike_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.bikes_bike_id_seq', 9, true);
 
 
 --
--- Name: customers_customer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+-- Name: customers_customer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.customers_customer_id_seq', 2, true);
 
 
 --
--- Name: rentals_rental_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+-- Name: rentals_rental_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.rentals_rental_id_seq', 8, true);
 
 
 --
--- Name: bikes bikes_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: bikes bikes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.bikes
@@ -239,7 +239,7 @@ ALTER TABLE ONLY public.bikes
 
 
 --
--- Name: customers customers_phone_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: customers customers_phone_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.customers
@@ -247,7 +247,7 @@ ALTER TABLE ONLY public.customers
 
 
 --
--- Name: customers customers_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: customers customers_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.customers
@@ -255,7 +255,7 @@ ALTER TABLE ONLY public.customers
 
 
 --
--- Name: rentals rentals_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: rentals rentals_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.rentals
@@ -263,7 +263,7 @@ ALTER TABLE ONLY public.rentals
 
 
 --
--- Name: rentals rentals_bike_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: rentals rentals_bike_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.rentals
@@ -271,7 +271,7 @@ ALTER TABLE ONLY public.rentals
 
 
 --
--- Name: rentals rentals_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: rentals rentals_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.rentals
